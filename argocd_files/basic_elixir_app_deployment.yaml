@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: basic-elixir-app-deployment
+  namespace: basic-elixir-app-argocd
+spec:
+  selector:
+    matchLabels:
+      app: basic-elixir-app
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: basic-elixir-app
+    spec:
+      containers:
+      - name: basic-elixir-app
+        image: 172.20.50.53/basic_elixir_app
+        ports:
+        - containerPort: 4000
+        env:
+        - name: SECRET_KEY_BASE
+          value: do6zL7b2Qeu76CGhGKGhrIivgt8TV11XZ49j0oDBM/0sN5+V1Os7v6Q3swtNzXHJ

@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: basic-elixir-app-service
+  namespace: basic-elixir-app-argocd
+spec:
+  ports:
+  - port: 4000
+#    targetPort: 4000
+  selector:
+    app: basic-elixir-app
