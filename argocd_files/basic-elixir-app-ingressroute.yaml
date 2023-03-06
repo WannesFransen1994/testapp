@@ -2,13 +2,13 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
   name: basic-elixir-app-route
-  namespace: basic-elixir-app-argocd
+  namespace: basic-elixir-app-rancher
 spec:
   entryPoints:
     - web
   routes:
   - kind: Rule
-    match: Host(`basic-elixir-app.k3s.lab.internal`)
+    match: Host(`basic-elixir-app-rancher.k3s.lab.internal`)
     services:
     - name: basic-elixir-app-service
       port: 4000
