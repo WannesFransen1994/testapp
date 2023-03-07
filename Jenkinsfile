@@ -1,7 +1,7 @@
 // Global Variable goes here// Pipeline block
 pipeline {
    // Agent block
-   agent { node { label 'Jenkins'}}
+   agent { node { label 'Built-In Node'}}
 
    options {
       buildDiscarder(logRotator(numToKeepStr: '30'))
