@@ -32,8 +32,8 @@ pipeline {
    stages {
       stage('Docker push'){
          steps{
-            withDockerServer([uri: "tcp:///var/run/docker.sock"]) {
-               withDockerRegistry([url: "https://172.20.50.53/"]) {
+            withDockerServer([uri: "tcp:///var/run/docker.sock", credentialsId: ""]) {
+               withDockerRegistry([url: "https://172.20.50.53/", credentialsId: ""]) {
                   sh '''
                      docker build -t my_kubelabtest -f Dockerfile .
                      docker tag mykubelabtest 172.20.50.53/basic_elixir_app:latest
