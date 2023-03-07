@@ -32,7 +32,7 @@ pipeline {
    stages {
       stage('Docker push'){
          steps{
-            withDockerServer([uri: "tcp:///var/run/docker.sock", credentialsId: ""]) {
+            withDockerServer([uri: "tcp://localhost:2375", credentialsId: ""]) {
                withDockerRegistry([url: "https://172.20.50.53/", credentialsId: ""]) {
                   sh '''
                      docker build -t my_kubelabtest -f Dockerfile .
