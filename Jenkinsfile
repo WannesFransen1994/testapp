@@ -29,20 +29,19 @@ pipeline {
            defaultValue: false)
     }
 
-   // Stage Block
    stages {
-   stage('Docker push'){
-      steps{
-         withDockerServer([uri: "tcp:///var/run/docker.sock"]) {
-            withDockerRegistry([url: "https://172.20.50.53/"]) {
-               sh '''
-                  docker build -t my_kubelabtest -f Dockerfile .
-                  docker tag mykubelabtest 172.20.50.53/basic_elixir_app:latest
-                  docker push 172.20.50.53/basic_elixir_app:latest
-               '''
+      stage('Docker push'){
+         steps{
+            withDockerServer([uri: "tcp:///var/run/docker.sock"]) {
+               withDockerRegistry([url: "https://172.20.50.53/"]) {
+                  sh '''
+                     docker build -t my_kubelabtest -f Dockerfile .
+                     docker tag mykubelabtest 172.20.50.53/basic_elixir_app:latest
+                     docker push 172.20.50.53/basic_elixir_app:latest
+                  '''
+               }
             }
          }
       }
-   }
    }
 }
