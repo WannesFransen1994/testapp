@@ -36,7 +36,7 @@ pipeline {
                withDockerRegistry([url: "https://172.20.50.53/", credentialsId: ""]) {
                   sh '''
                      docker build -t my_kubelabtest -f Dockerfile .
-                     docker tag mykubelabtest 172.20.50.53/basic_elixir_app:latest
+                     docker tag my_kubelabtest 172.20.50.53/basic_elixir_app:latest
                      docker push 172.20.50.53/basic_elixir_app:latest
                   '''
                }
