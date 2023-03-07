@@ -2,7 +2,6 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
   name: basic-elixir-app-route
-  namespace: basic-elixir-app-rancher
 spec:
   entryPoints:
     - web

@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: basic-elixir-app-deployment
-  namespace: basic-elixir-app-rancher
 spec:
   selector:
     matchLabels:
